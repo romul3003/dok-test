@@ -1,0 +1,7 @@
+mixin products(title)
+  section.products
+    h1.products__title= title
+    ul.products__row
+       each product in products
+         +product(product)
+

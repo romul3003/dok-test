@@ -14,8 +14,18 @@ h1, h2, h3, h4, h5, h6, ul {
 
 ul, ol {
   padding: 0;
+  list-style: none;
 }
 
 p {
   margin: 0;
+}
+
+.main {
+  padding: 77px 0;
+}
+
+.container {
+  max-width: 1294px;
+  margin: 0 auto;
 }
