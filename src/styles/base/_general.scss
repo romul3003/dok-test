@@ -1,8 +1,21 @@
-h1, h2, h3, h4, h5, h6, ul {
-    margin: 0;
-    padding: 0;
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-.container {
+html, body {
+  font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
+  font-size: 16px;
+}
 
+h1, h2, h3, h4, h5, h6, ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol {
+  padding: 0;
+}
+
+p {
+  margin: 0;
 }
