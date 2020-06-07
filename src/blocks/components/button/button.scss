@@ -18,7 +18,7 @@
   &:hover {
     @media (hover: hover) and (pointer: fine) {
       cursor: pointer;
-      background-color: darken($primary, 5);
+      background-color: darken($primary, 10);
     }
   }
 }
