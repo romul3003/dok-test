@@ -1,0 +1,156 @@
+@import '../../../styles/helpers/variables';
+
+.product {
+  display: flex;
+  flex: 0 0 25%;
+  flex-direction: column;
+  padding: 0 1.4vw;
+
+  @media (min-width: 1440px) {
+    padding: 0 20px;
+  }
+
+  &__card {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+  }
+
+  &__inner-wrap {
+    position: relative;
+    margin: 0 0 2.8vh;
+
+    @media (min-width: 1440px) {
+      margin: 0 0 27px;
+    }
+  }
+
+  &__link {
+    display: block;
+  }
+
+  &__img-wrap {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    padding: 0 0 95.5% 0;
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__favorite {
+    position: absolute;
+    z-index: 20;
+    right: 4.4%;
+    bottom: -4.3%;
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+
+    &:hover {
+      @media (hover: hover) and (pointer: fine) {
+        cursor: pointer;
+      }
+    }
+
+    &--empty {
+      background-image: url('../../../img/svg/favorite-empty.svg');
+    }
+
+    &--full {
+      background-image: url('../../../img/svg/favorite-full.svg');
+    }
+  }
+
+  &__brand, &__name {
+    display: block;
+  }
+
+  &__brand {
+    font-weight: 500;
+    line-height: 1.56;
+    letter-spacing: 0.5px;
+    color: $primary;
+  }
+
+  &__name-wrap {
+    flex: 1 0 auto;
+  }
+
+  &__name {
+    line-height: 1.56;
+    color: #333;
+  }
+
+  &__rating {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 8px 0 18px 0;
+
+    &:hover {
+      @media (hover: hover) and (pointer: fine) {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__recommendations {
+    font-size: 13px;
+    opacity: .5;
+    color: #333;
+    line-height: 1.54;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__price-wrap {
+    //display: flex;
+    //flex-direction: column;
+    //justify-content: space-between;
+    margin: 0 10px 0 0;
+  }
+
+  &__price {
+    margin: 0 0 5px;
+  }
+
+  &__price-numbers {
+    margin: 0 0 5px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: 0.5px;
+    color: #333;
+  }
+
+  &__price-currency {
+    opacity: .5;
+    font-size: 13px;
+    line-height: 1.54;
+    color: #333;
+  }
+
+  &__in-stock {
+    font-size: 13px;
+    line-height: 1.54;
+    color: #43a047;
+  }
+
+  &__under-the-order {
+    font-size: 13px;
+    line-height: 1.54;
+    color: #333;
+  }
+}

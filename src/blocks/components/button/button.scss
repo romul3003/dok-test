@@ -1,0 +1,24 @@
+@import '../../../styles/helpers/variables';
+
+.button {
+  width: 42.85%;
+  height: 40px;
+  background-color: $primary;
+  border: none;
+  border-radius: 3px;
+  font-size: 13px;
+  line-height: 1.54;
+  color: #fff;
+  transition: background-color .2s ease;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    @media (hover: hover) and (pointer: fine) {
+      cursor: pointer;
+      background-color: darken($primary, 5);
+    }
+  }
+}

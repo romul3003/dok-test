@@ -1,0 +1,11 @@
+mixin rating(rating)
+  - let i = 0;
+  - let j = 0;
+  - let empty = 5 - rating;
+  .rating
+    while i < rating
+      .rating__star
+      - i++
+    while j < empty
+      .rating__star.rating__star--empty
+      - j++

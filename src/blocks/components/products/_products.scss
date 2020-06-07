@@ -1,8 +1,8 @@
 .products {
-  margin-bottom: 70px;
+  margin-bottom: 8.25vh;
 
-  @media (max-width: 1439px) {
-    margin-bottom: 8.25vh;
+  @media (min-width: 1440px) {
+    margin-bottom: 70px;
   }
 
   &__title {
@@ -15,5 +15,10 @@
 
   &__row {
     display: flex;
+    margin: 0 -1.4vw;
+
+    @media (min-width: 1440px) {
+      margin: 0 -20px;
+    }
   }
 }

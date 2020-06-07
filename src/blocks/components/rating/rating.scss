@@ -1,0 +1,19 @@
+.rating {
+  display: flex;
+  margin: 0 10px 0 0;
+
+  &__star {
+    width: 14px;
+    height: 14px;
+    background-image: url('../../../img/svg/star.svg');
+    background-repeat: no-repeat;
+
+    & + .rating__star {
+      margin-left: 5px;
+    }
+
+    &--empty {
+      background-image: url('../../../img/svg/star-empty.svg');
+    }
+  }
+}

@@ -13,6 +13,7 @@ import plumber from 'gulp-plumber'
 import browsersync from 'browser-sync'
 import debug from 'gulp-debug'
 import yargs from 'yargs'
+import replace from 'gulp-replace'
 
 const argv = yargs.argv,
   production = !!argv.production
@@ -22,6 +23,7 @@ gulp.task('styles', () => {
     .pipe(gulpif(!production, sourcemaps.init()))
     .pipe(plumber())
     .pipe(sass())
+    .pipe(replace(/(\.{2}\/){2,}/g, '../'))
     .pipe(groupmedia())
     .pipe(gulpif(production, autoprefixer({
       cascade: false,

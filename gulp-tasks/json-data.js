@@ -4,6 +4,7 @@ import {paths} from '../gulpfile.babel'
 import gulp from 'gulp'
 import path from 'path'
 import merge from 'gulp-merge-json'
+import browsersync from 'browser-sync'
 
 gulp.task('json-data', () => {
   return gulp.src(paths.data.src)
@@ -22,4 +23,5 @@ gulp.task('json-data', () => {
       }
     }))
     .pipe(gulp.dest(paths.data.dist))
+    .pipe(browsersync.stream())
 })

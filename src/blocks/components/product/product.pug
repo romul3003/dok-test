@@ -1,3 +1,44 @@
 mixin product(product)
+  -
+    const {
+      product_id, product_title, url_direct, product_image,
+      product_image_alt, brand_name, rating, rating_count,
+      price, available
+    } = product
   li.product
-    h3.product__title= product.product_title
+    .product__card
+      .product__inner-wrap
+        a.product__link(href=url_direct)
+          span.product__img-wrap
+            img.product__img(src=product_image alt=product_image_alt title=product_title)
+
+        span.product__favorite.product__favorite--empty(data-product-id=product_id)
+
+      .product__name-wrap
+        a.product__link(href=url_direct)
+          span.product__brand= brand_name
+          span.product__name= product_title
+
+
+        if +rating
+          .product__rating
+            +rating(+rating)
+            if +rating_count % 10 === 1
+              .product__recommendations (#{rating_count} рекомендация)
+            else if +rating_count % 10 > 1 && +rating_count % 10 < 5
+              .product__recommendations (#{rating_count} рекомендации)
+            else if +rating_count % 10 === 0 || +rating_count % 10 >= 5
+              .product__recommendations (#{rating_count} рекомендаций)
+
+      .product__footer
+        .product__price-wrap
+          .product__price
+            span.product__price-numbers #{price.split('.', 1).join('')}
+            | !{' '}
+            span.product__price-currency грн
+          if +available
+            .product__in-stock Есть в наличии
+          else
+            .product__under-the-order Под заказ
+
+        +button('Купить')
