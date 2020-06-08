@@ -5,7 +5,7 @@ mixin product(product)
       product_image_alt, brand_name, rating, rating_count,
       price, available
     } = product
-  li.product
+  .product
     .product__card
       .product__inner-wrap
         a.product__link(href=url_direct)
@@ -15,7 +15,7 @@ mixin product(product)
         span.product__favorite.product__favorite--empty(data-product-id=product_id)
 
       .product__name-wrap
-        a.product__link(href=url_direct)
+        a.product__link.product__link--name(href=url_direct)
           span.product__brand= brand_name
           span.product__name= product_title
 

@@ -1,8 +1,8 @@
 @import '../../../styles/helpers/variables';
 
 .product {
-  display: flex;
-  flex: 0 0 25%;
+  display: flex !important;
+  flex: 1 1 auto;
   flex-direction: column;
   padding: 0 1.4vw;
 
@@ -27,6 +27,10 @@
 
   &__link {
     display: block;
+
+    &--name {
+      flex: 1 0 auto;
+    }
   }
 
   &__img-wrap {
@@ -88,6 +92,8 @@
 
   &__name-wrap {
     flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
   }
 
   &__name {
@@ -117,12 +123,21 @@
 
   &__footer {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 
   &__price-wrap {
-    margin: 0 10px 0 0;
+    margin: 0 0 22px;
+
+    @media (min-width: 768px) {
+      margin: 0 10px 0 0;
+    }
   }
 
   &__price {

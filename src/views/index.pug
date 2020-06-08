@@ -7,9 +7,13 @@ block variables
 block content
   main.main
     .container
-      +products('Бестселлеры в категории автотовары и автохимия')
+      section.carousel.bestsellers
+        +products('Бестселлеры в категории автотовары и автохимия')
+
+      section.carousel.new
+        +products('Что-то новенькое')
 
 
 block scripts
   script(src="js/main.js")
-  //script(src="js/vendor.js")
+  script(src="js/vendor.js")
