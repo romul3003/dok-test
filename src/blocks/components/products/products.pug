@@ -1,7 +1,16 @@
-mixin products(title)
+mixin products(title, random)
+  -
+   random = !!random
+
   .products
     h1.products__title= title
-    .products__list.slider
-       each product in products
-         +product(product)
+    if !random
+      .products__list.slider
+        each product in products
+          +product(product)
+    else
+      .products__list.random-slider
+        each product in products
+          +product(product)
+
 

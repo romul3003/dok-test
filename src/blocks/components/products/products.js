@@ -2,14 +2,7 @@ import $ from 'jquery'
 import 'slick-carousel/slick/slick'
 
 const $slider = $('.slider')
-
-// $slider.on('init', (event, slick) => {
-//   console.log(slick)
-// })
-//
-// $slider.on('afterChange', () => {
-//
-// })
+const $randomSlider = $('.random-slider')
 
 const slickSettings = {
   arrows: true,
@@ -48,4 +41,21 @@ const slickSettings = {
   ]
 }
 
+$.fn.randomize = function (selector) {
+  let $elems = selector ? $(this).find(selector) : $(this).children(),
+    $parents = $elems.parent()
+
+  $parents.each(function () {
+    $(this).children(selector).sort(function (childA, childB) {
+      // * Prevent last slide from being reordered
+      if($(childB).index() !== $(this).children(selector).length - 1) {
+        return Math.round(Math.random()) - 0.5
+      }
+    }.bind(this)).detach().appendTo(this)
+  })
+
+  return this
+}
+
 $slider.slick(slickSettings)
+$randomSlider.randomize().slick(slickSettings)
