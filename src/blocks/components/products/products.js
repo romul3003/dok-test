@@ -41,6 +41,13 @@ const slickSettings = {
   ]
 }
 
+function preventFlickering(event, slick) {
+  slick.$slider.closest('.products').fadeTo(200, 1)
+}
+
+$slider.on('init', preventFlickering)
+$randomSlider.on('init', preventFlickering)
+
 $.fn.randomize = function (selector) {
   let $elems = selector ? $(this).find(selector) : $(this).children(),
     $parents = $elems.parent()
