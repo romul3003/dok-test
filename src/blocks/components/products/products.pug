@@ -2,8 +2,9 @@ mixin products(title, random)
   -
    random = !!random
 
-  .products
-    h1.products__title= title
+  .products(itemscope itemtype="http://schema.org/ItemList")
+    h2.products__title= title
+
     if !random
       .products__list.slider
         each product in products

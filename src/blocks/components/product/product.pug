@@ -6,19 +6,18 @@ mixin product(product)
       price, available
     } = product
   .product
-    .product__card
+    .product__card(itemprop="itemListElement" itemscope itemtype="http://schema.org/Product")
       .product__inner-wrap
-        a.product__link(href=url_direct)
+        a.product__link(href=url_direct itemprop="url")
           span.product__img-wrap
-            img.product__img(src=product_image alt=product_image_alt title=product_title)
+            img.product__img(src=product_image alt=product_image_alt itemprop="image" title=product_title)
 
         span.product__favorite.product__favorite--empty(data-product-id=product_id)
 
       .product__name-wrap
-        a.product__link.product__link--name(href=url_direct)
+        a.product__link.product__link--name(href=url_direct itemprop="url")
           span.product__brand= brand_name
-          span.product__name= product_title
-
+          span.product__name(itemprop="name")= product_title
 
         if +rating
           .product__rating
@@ -32,8 +31,8 @@ mixin product(product)
 
       .product__footer
         .product__price-wrap
-          .product__price
-            span.product__price-numbers #{price.split('.', 1).join('')}
+          .product__price(itemprop="offers" itemscope itemtype="http://schema.org/Offer")
+            span.product__price-numbers(itemprop="price") #{price.split('.', 1).join('')}
             | !{' '}
             span.product__price-currency грн
           if +available
