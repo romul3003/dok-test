@@ -20,15 +20,20 @@ mixin product(product)
           span.product__name(itemprop="name")= product_title
 
         if +rating
-          .product__rating
+          .product__rating(itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating")
             +rating(+rating)
-            if +rating_count % 10 === 1
-              .product__recommendations (#{rating_count} рекомендация)
+            if +rating_count % 100 > 10 && +rating_count % 100 < 20  || +rating_count % 10 === 0 || +rating_count % 10 >= 5
+              .product__recommendations (
+                span(itemprop="ratingCount") #{+rating_count}
+                | !{' '} рекомендаций)
+            else if +rating_count % 10 === 1
+              .product__recommendations (
+                span(itemprop="ratingCount") #{+rating_count}
+                | !{' '} рекомендация)
             else if +rating_count % 10 > 1 && +rating_count % 10 < 5
-              .product__recommendations (#{rating_count} рекомендации)
-            else if +rating_count % 10 === 0 || +rating_count % 10 >= 5
-              .product__recommendations (#{rating_count} рекомендаций)
-
+              .product__recommendations (
+                span(itemprop="ratingCount") #{+rating_count}
+                | !{' '} рекомендации)
       .product__footer
         .product__price-wrap
           .product__price(itemprop="offers" itemscope itemtype="http://schema.org/Offer")
