@@ -34,15 +34,19 @@ mixin product(product)
               .product__recommendations (
                 span(itemprop="ratingCount") #{+rating_count}
                 | !{' '} рекомендации)
-      .product__footer
+
+      .product__footer(itemprop="offers" itemscope itemtype="http://schema.org/Offer")
         .product__price-wrap
-          .product__price(itemprop="offers" itemscope itemtype="http://schema.org/Offer")
+          .product__price
+            meta(itemprop="priceCurrency" content="UAH")
             span.product__price-numbers(itemprop="price") #{price.split('.', 1).join('')}
             | !{' '}
-            span.product__price-currency грн
+            span.product__price-currency() грн
           if +available
+            link(itemprop="availability" href="http://schema.org/InStock")
             .product__in-stock Есть в наличии
           else
+            link(itemprop="availability" href="http://schema.org/PreOrder")
             .product__under-the-order Под заказ
 
         +button('Купить')
