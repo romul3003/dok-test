@@ -3,13 +3,14 @@
 .products {
   &__title {
     margin: 0 24px 12px 0;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 500;
     line-height: 1;
     color: #000;
 
     @media (min-width: 576px) {
       margin: 0 24px 2.5em 0;
+      font-size: 24px;
     }
 
     @media (min-width: 768px) {
