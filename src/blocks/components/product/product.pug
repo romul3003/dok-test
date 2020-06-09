@@ -16,7 +16,7 @@ mixin product(product)
 
       .product__name-wrap
         a.product__link.product__link--name(href=url_direct itemprop="url")
-          span.product__brand= brand_name
+          span.product__brand(itemprop="brand")= brand_name
           span.product__name(itemprop="name")= product_title
 
         if +rating
