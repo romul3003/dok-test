@@ -1,8 +1,6 @@
-@import 'node_modules/slick-carousel/slick/slick.scss';
+@import 'node_modules/swiper/swiper.scss';
 
 .products {
-  opacity: 0;
-
   &__title {
     margin: 0 24px 12px 0;
     font-size: 22px;
@@ -20,35 +18,29 @@
     }
   }
 
+  &__list-wrap {
+    position: relative;
+    //padding: 0 1.4vw;
+  }
+
   &__list {
     display: flex;
-    margin: 0 -1.4vw;
+    //margin: 0 -1.4vw;
 
     @media (min-width: 1440px) {
-      margin: 0 -20px;
+      //margin: 0 -20px;
     }
   }
 
-  .slick-track {
-    display: flex;
-  }
+  .swiper-button {
+    display: none;
 
-  .slick-slide {
-    display: flex;
-    height: auto;
-    width: 220px;
-
-    @media (min-width: 768px) {
-      width: initial;
+    @media (min-width: 992px) {
+      display: block;
     }
   }
 
-  .slick-slide > div {
-    display: flex;
-    width: 100%;
-  }
-
-  .slick-arrow {
+  .swiper-button {
     position: absolute;
     z-index: 20;
     top: 50%;
@@ -72,18 +64,26 @@
       outline: none;
     }
 
-    &.slick-disabled {
-      display: none !important;
+    &.swiper-button-disabled {
+      display: none;
     }
   }
 
-  .slick-next {
-    right: 10px;
-    transform: translate(100%, -50%);
+  .swiper-button-prev {
+    left: 0;
+    transform: translate(-100%, -50%) rotate(180deg);
+
+    @media (min-width: 768px) {
+      left: -6px;
+    }
   }
 
-  .slick-prev {
-    left: 10px;
-    transform: translate(-100%, -50%) rotate(180deg);
+  .swiper-button-next {
+    right: 0;
+    transform: translate(100%, -50%);
+
+    @media (min-width: 768px) {
+      right: -6px;
+    }
   }
 }

@@ -74,7 +74,8 @@
         "jquery": "^3.5.1",
         "normalize.css": "^8.0.1",
         "slick-carousel": "^1.8.1",
-        "smart-grid": "^2.1.2"
+        "smart-grid": "^2.1.2",
+        "swiper": "^5.4.3"
     },
     "husky": {
         "hooks": {

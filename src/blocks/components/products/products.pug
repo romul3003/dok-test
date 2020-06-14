@@ -6,12 +6,19 @@ mixin products(title, random)
     h2.products__title= title
 
     if !random
-      .products__list.slider
-        each product in products
-          +product(product)
+      .products__list-wrap
+        .products__list.slider.swiper-container
+          .swiper-wrapper
+            each product in products
+              +product(product)
+        .swiper-button.swiper-button-prev
+        .swiper-button.swiper-button-next
     else
-      .products__list.random-slider
-        each product in products
-          +product(product)
-
+      .products__list-wrap
+        .products__list.random-slider.swiper-container
+          .swiper-wrapper
+            each product in products
+              +product(product)
+        .swiper-button.swiper-button-prev
+        .swiper-button.swiper-button-next
 
