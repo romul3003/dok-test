@@ -4,7 +4,6 @@ mixin rating(rating)
     let j = 0;
     let empty = 5 - rating;
   .rating
-    span(hidden itemprop="ratingValue")= rating
     while i < rating
       .rating__star
       - i++

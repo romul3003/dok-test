@@ -1,13 +1,25 @@
 import Swiper from 'swiper'
 
+function shuffle(array) {
+  array.sort(() => Math.random() - 0.5)
+}
+
+const randomSliderWrapper = document.querySelector('.random-slider > .swiper-wrapper')
+const elems = Array.from(randomSliderWrapper.querySelectorAll('.product'))
+shuffle(elems)
+randomSliderWrapper.append(...elems)
+
+function navigation(btmName) {
+  return {
+    prevEl: `${btmName}.swiper-button-prev`,
+    nextEl: `${btmName}.swiper-button-next`,
+  }
+}
+
 const swiperSettings = {
   slidesPerView: 'auto',
   freeMode: true,
   spaceBetween: 20,
-  navigation: {
-    prevEl: '.swiper-button.swiper-button-prev',
-    nextEl: '.swiper-button.swiper-button-next',
-  },
   breakpoints: {
     992: {
       slidesPerView: 3,
@@ -25,8 +37,8 @@ const swiperSettings = {
 }
 
 function enableSwiper() {
-  new Swiper('.slider', swiperSettings)
-  new Swiper('.random-slider', swiperSettings)
+  new Swiper('.slider', { ...swiperSettings, navigation: navigation('.swiper-button') })
+  new Swiper('.random-slider', { ...swiperSettings, navigation: navigation('.randomSwiper-button') })
 }
 
 enableSwiper()

@@ -1,6 +1,7 @@
 mixin products(title, random)
   -
     random = !!random
+    let position
 
   .products(itemscope itemtype="http://schema.org/ItemList")
     h2.products__title= title
@@ -9,16 +10,20 @@ mixin products(title, random)
       .products__list-wrap
         .products__list.slider.swiper-container
           .swiper-wrapper
+            - position = 1
             each product in products
-              +product(product)
+              +product(product, position)
+              - position++
         .swiper-button.swiper-button-prev
         .swiper-button.swiper-button-next
     else
       .products__list-wrap
         .products__list.random-slider.swiper-container
           .swiper-wrapper
+            - position = 1
             each product in products
-              +product(product)
-        .swiper-button.swiper-button-prev
-        .swiper-button.swiper-button-next
+              +product(product, position)
+              - position++
+        .randomSwiper-button.swiper-button-prev
+        .randomSwiper-button.swiper-button-next
 
