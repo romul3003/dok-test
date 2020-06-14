@@ -136,9 +136,14 @@
 
   &__rating {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    align-items: center;
     margin: 8px 0 18px 0;
+
+    @media (min-width: 992px) {
+      flex-direction: row;
+      align-items: center;
+    }
 
     &:hover {
       @media (hover: hover) and (pointer: fine) {
