@@ -16,7 +16,7 @@ mixin product(product, position)
         span.product__favorite.product__favorite--empty(data-product-id=product_id)
 
       .product__name-wrap
-        a.product__link.product__link--name(href=url_direct itemprop="url")
+        a.product__link.product__link--name(href=url_direct)
           span.product__brand= brand_name
           span.product__name(itemprop="name")= product_title
 
