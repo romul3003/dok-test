@@ -20,6 +20,14 @@ const swiperSettings = {
   slidesPerView: 'auto',
   freeMode: true,
   spaceBetween: 20,
+  preloadImages: false,
+  lazy: true,
+  watchSlidesVisibility: true,
+  on: {
+    init: function () {
+      this.$wrapperEl[0].closest('.products').style.opacity = '1'
+    },
+  },
   breakpoints: {
     992: {
       slidesPerView: 3,
@@ -38,6 +46,7 @@ const swiperSettings = {
 
 function enableSwiper() {
   new Swiper('.slider', { ...swiperSettings, navigation: navigation('.swiper-button') })
+
   new Swiper('.random-slider', { ...swiperSettings, navigation: navigation('.randomSwiper-button') })
 }
 
