@@ -1,7 +1,10 @@
-import $ from 'jquery'
+const carouselsWrap = document.querySelector('.carousels-wrap')
+carouselsWrap.addEventListener('click', (event) => {
+  const { target } = event
 
-const $favorite = $('.product__favorite')
+  if (!target.classList.contains('product__favorite')) {
+    return
+  }
 
-$favorite.on('click', (event) => {
-  $(event.currentTarget).toggleClass('product__favorite--full')
+  target.classList.toggle('product__favorite--full')
 })
